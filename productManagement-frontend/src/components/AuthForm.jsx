@@ -80,7 +80,7 @@ const AuthForm = () => {
           >
             {loading ? (
               <>
-                <div className="spinner small"></div>
+                {/* <div className="spinner small"></div> */}
                 Signing in...
               </>
             ) : (
