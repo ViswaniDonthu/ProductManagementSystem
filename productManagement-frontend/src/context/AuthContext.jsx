@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-
+const BACKEND_PORT= import.meta.env.VITE_BACKEND_URL
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -11,8 +11,8 @@ export const useAuth = () => {
   return context;
 };
 
-// Configure axios defaults
-axios.defaults.baseURL = 'http://localhost:5000';
+
+axios.defaults.baseURL = BACKEND_PORT;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
