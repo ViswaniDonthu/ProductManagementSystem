@@ -88,3 +88,9 @@
     font-size: 20px;
   }
 }
+.spinner.small {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  /* margin-right: 8px; */
+}
