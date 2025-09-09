@@ -88,7 +88,10 @@ const AuthForm = () => {
             )}
           </button>
         </form>
+         <p>Default mail: test@example.com </p>
+        <p>password:12345</p>
       </div>
+        
     </div>
   );
 };
