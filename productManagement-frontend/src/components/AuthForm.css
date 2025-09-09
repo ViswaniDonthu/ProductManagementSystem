@@ -1,0 +1,90 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding: 20px;
+}
+
+.auth-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  border: 1px solid var(--border-color);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.auth-logo .logo-icon {
+  font-size: 36px;
+  animation: bounce 2s infinite;
+}
+
+.auth-logo h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--button-primary);
+  margin: 0;
+}
+
+.auth-header h2 {
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.auth-header p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 14px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 15px;
+  }
+  
+  .auth-card {
+    padding: 30px 25px;
+  }
+  
+  .auth-logo h1 {
+    font-size: 24px;
+  }
+  
+  .auth-header h2 {
+    font-size: 20px;
+  }
+}

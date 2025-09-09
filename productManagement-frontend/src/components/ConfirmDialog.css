@@ -1,0 +1,77 @@
+.confirm-dialog {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.confirm-icon {
+  margin-bottom: 20px;
+}
+
+.confirm-icon span {
+  font-size: 48px;
+  display: inline-block;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.confirm-content {
+  margin-bottom: 25px;
+}
+
+.confirm-content h3 {
+  color: var(--text-primary);
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.confirm-content p {
+  color: var(--text-secondary);
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.confirm-warning {
+  color: var(--danger);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.confirm-actions .btn {
+  min-width: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .confirm-dialog {
+    padding: 25px 20px;
+    margin: 20px;
+  }
+  
+  .confirm-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .confirm-actions .btn {
+    width: 100%;
+    min-width: auto;
+  }
+}

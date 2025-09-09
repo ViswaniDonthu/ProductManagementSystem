@@ -1,0 +1,138 @@
+.category-filter {
+  
+  border-radius: 12px;
+  padding: 25px;
+
+  box-shadow: 0 4px 15px var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+/* 
+.filter-section {
+  margin-bottom: 25px;
+} */
+
+.filter-title {
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+
+/* .category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+} */
+ .category-buttons {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto; /* enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+  padding-bottom: 5px; 
+  scroll-behavior: smooth; 
+  
+  /* hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+.category-buttons::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 25px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  
+  font-weight: 500;
+}
+
+.category-btn:hover {
+  border-color: var(--button-primary);
+ 
+  background-color: var(--bg-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.category-btn.active {
+  background-color: var(--button-primary);
+  color: white;
+  border-color: var(--button-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.category-icon {
+  font-size: 18px;
+}
+
+.category-name {
+  white-space: nowrap;
+  
+}
+
+.sort-section {
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.sort-select {
+  width: 200px;
+  padding: 12px 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--button-primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.sort-select:hover {
+  border-color: var(--button-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-filter {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .category-buttons {
+    gap: 8px;
+  }
+  
+  .category-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  .category-name {
+    display: none;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+  
+  .filter-title {
+    font-size: 16px;
+  }
+}
