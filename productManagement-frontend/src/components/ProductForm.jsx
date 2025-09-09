@@ -170,10 +170,10 @@ const ProductForm = ({ product, onClose }) => {
             </button>
             <button type="submit" className="btn btn-primary" disabled={formik.isSubmitting}>
               {formik.isSubmitting ? (
-                <>
-                  <div className="spinner small"></div>
-                  {isEditing ? 'Updating...' : 'Adding...'}
-                </>
+                <span className="btn-content">
+    {/* <span className="spinner small"></span> */}
+    {isEditing ? 'Updating...' : 'Adding...'}
+  </span>
               ) : (
                 isEditing ? 'Update Product' : 'Add Product'
               )}

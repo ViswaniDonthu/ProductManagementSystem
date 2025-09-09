@@ -68,6 +68,23 @@
   font-size: 16px;
   font-weight: 600;
   margin-top: 10px;
+  align-items: center;
+  justify-content: center; /* centers text horizontally */
+  text-align: center;
+}
+.glass-box {
+  background: rgba(255, 255, 255, 0.1); /* transparent white */
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(10px); /* frosted effect */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #3f7dad;
+  max-width: 280px;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */

@@ -88,8 +88,12 @@ const AuthForm = () => {
             )}
           </button>
         </form>
-         <p>Default mail: test@example.com </p>
-        <p>password:12345</p>
+    <div className="glass-box">
+  <p>Default mail: <strong>test@example.com</strong></p>
+  <p>Password: <strong>12345</strong></p>
+</div>
+
+
       </div>
         
     </div>

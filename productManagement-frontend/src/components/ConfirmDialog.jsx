@@ -21,7 +21,7 @@ const ConfirmDialog = () => {
         
         setTimeout(() => {
           hideConfirmDialog();
-        }, 500);
+        }, 300);
       }
     } catch (error) {
       console.error('Error deleting product:', error);
@@ -68,7 +68,7 @@ const ConfirmDialog = () => {
           >
             {isDeleting ? (
               <>
-                <div className="spinner small"></div>
+                {/* <div className="spinner small"></div> */}
                 Deleting...
               </>
             ) : (

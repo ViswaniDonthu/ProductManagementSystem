@@ -126,7 +126,7 @@ const updateProduct = async (id, productData) => {
   try {
     const response = await axios.put(`/api/products/${id}`, productData);
     if (response.data.success) {
-      toast.success("✅ Product updated successfully!");
+      toast.success(" Product updated successfully!");
       await fetchProducts(true);
       return { success: true };
     }
@@ -143,7 +143,7 @@ const deleteProduct = async (id) => {
   try {
     const response = await axios.delete(`/api/products/${id}`);
     if (response.data.success) {
-      toast.success("🗑️ Product deleted successfully!");
+       toast.success("Product deleted successfully!");
       await fetchProducts(true);
       await fetchCategories();
       return { success: true };

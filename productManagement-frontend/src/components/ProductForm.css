@@ -93,6 +93,11 @@
   border-width: 2px;
   /* margin-right: 8px; */
 }
+.btn-content {
+  display: inline-flex;
+ 
+  
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
