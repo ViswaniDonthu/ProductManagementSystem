@@ -188,14 +188,18 @@
     font-size: 18px;
   }
   
-  .product-overlay {
+  /* .product-overlay {
     opacity: 1;
-  }
-  
+  } */
+
   .edit-btn,
   .delete-btn {
     width: 32px;
     height: 32px;
     font-size: 12px;
+    
+  }
+  .edit-btn{
+    color: black;
   }
 }

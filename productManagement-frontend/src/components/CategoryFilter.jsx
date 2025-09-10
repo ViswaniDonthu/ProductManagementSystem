@@ -1,27 +1,28 @@
 import { useProducts } from '../context/ProductContext';
-import './CategoryFilter.css';
 
+ import './CategoryFilter.css';
 const CategoryFilter = () => {
   const { categories, selectedCategory, handleCategoryFilter, handleSort, sortBy } = useProducts();
 
   const categoryIcons = {
     all: '🏪',
     fruits: '🍎',
-    vegetables: '🥕',
-    sweets: '🍭',
+    vegetables: '🥕',  
+    chocolate: '🍭',
     clothes: '👕',
     machines: '⚙️',
     electronics: '📱',
-    books: '📚',
+    dairy: '📚',
     toys: '🧸',
     sports: '⚽'
   };
 
   const sortOptions = [
-    { value: 'newest', label: 'Newest First' },
-    { value: 'oldest', label: 'Oldest First' },
+    { value: 'price-desc', label: 'Price: High to Low' },
     { value: 'price-asc', label: 'Price: Low to High' },
-    { value: 'price-desc', label: 'Price: High to Low' }
+    { value: 'newest', label: 'Newest First' },
+    { value: 'oldest', label: 'Oldest First' }
+   
   ];
 
   return (

@@ -107,7 +107,12 @@
 .sort-select:hover {
   border-color: var(--button-primary);
 }
-
+.category-icon{
+  display: none;
+}
+.category-name{
+ font-family: "Lato", sans-serif;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .category-filter {
@@ -124,9 +129,6 @@
     font-size: 13px;
   }
   
-  .category-name {
-    display: none;
-  }
   
   .sort-select {
     width: 100%;

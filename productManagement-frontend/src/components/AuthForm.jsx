@@ -39,7 +39,7 @@ const AuthForm = () => {
       <div className="auth-card">
         <div className="auth-header">
           <div className="auth-logo">
-            <span className="logo-icon">🛍️</span>
+            <span className="logo-icon"><img style={{ height: "36px" ,width:"36px"}} src="products-logo-store.jpg" /></span>
             <h1>ProductStore</h1>
           </div>
           <h2>Welcome Back</h2>

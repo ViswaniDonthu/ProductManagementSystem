@@ -109,8 +109,9 @@ const addProduct = async (productData) => {
   try {
     const response = await axios.post("/api/products", productData);
     if (response.data.success) {
-      toast.success("Product added successfully!");
+     
       await fetchProducts(true);
+       toast.success("Product added successfully!");
       await fetchCategories();
       return { success: true };
     }
@@ -126,8 +127,8 @@ const updateProduct = async (id, productData) => {
   try {
     const response = await axios.put(`/api/products/${id}`, productData);
     if (response.data.success) {
+      await fetchProducts(true)
       toast.success(" Product updated successfully!");
-      await fetchProducts(true);
       return { success: true };
     }
   } catch (error) {
@@ -143,8 +144,9 @@ const deleteProduct = async (id) => {
   try {
     const response = await axios.delete(`/api/products/${id}`);
     if (response.data.success) {
-       toast.success("Product deleted successfully!");
+      
       await fetchProducts(true);
+       toast.success("Product deleted successfully!");
       await fetchCategories();
       return { success: true };
     }

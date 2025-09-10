@@ -44,20 +44,21 @@ const ProductCard = ({ product, onEdit }) => {
             <span className="placeholder-icon">📦</span>
           </div>
         )}
-        <div className="product-overlay">
+        <div className="product-overlay " >
           <button 
+          style={{backgroundColor:'white',opacity:'0.8'}}
             onClick={() => onEdit(product)}
             className="btn btn-secondary edit-btn"
             title="Edit product"
           >
-            ✏️
+            Edit
           </button>
           <button 
             onClick={handleDelete}
             className="btn btn-danger delete-btn"
             title="Delete product"
           >
-            🗑️
+            Del
           </button>
         </div>
       </div>

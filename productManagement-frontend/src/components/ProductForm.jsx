@@ -60,7 +60,7 @@ const ProductForm = ({ product, onClose }) => {
 
   const categories = [
     'fruits', 'vegetables', 'chocolates', 'clothes', 'machines',
-    'electronics', 'books', 'toys', 'sports', 'other'
+    'electronics', 'dairy', 'toys', 'sports', 'other'
   ];
 
   return (
