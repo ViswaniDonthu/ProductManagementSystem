@@ -1,7 +1,6 @@
 import { useProducts } from '../context/ProductContext';
 import ProductCard from './ProductCard';
 import './ProductGrid.css';
-
 const ProductGrid = ({ onEditProduct }) => {
   const { products, loading } = useProducts();
 
@@ -13,7 +12,6 @@ const ProductGrid = ({ onEditProduct }) => {
       </div>
     );
   }
-
   if (products.length === 0) {
     return (
       <div className="empty-state">
@@ -22,7 +20,6 @@ const ProductGrid = ({ onEditProduct }) => {
       </div>
     );
   }
-
   return (
     <div className="product-grid">
       {products.map(product => (
@@ -35,5 +32,4 @@ const ProductGrid = ({ onEditProduct }) => {
     </div>
   );
 };
-
 export default ProductGrid;

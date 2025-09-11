@@ -19,8 +19,8 @@ function AppContent() {
   if (loading) {
     return (
       <div className="loading-container">
-        <div className="spinner"></div>
-        <p>Loading...</p>
+      <div className="spinner"></div>
+      <p>Loading...</p>
       </div>
     );
   }
@@ -28,22 +28,20 @@ function AppContent() {
   if (!user) {
     return (
       <div className="app">
-        <AuthForm />
+      <AuthForm />
       </div>
     );
   }
 
   return (
     <div className="app">
-      <Header 
-        onAddProduct={() => setShowProductForm(true)}
+      <Header  onAddProduct={() => setShowProductForm(true)}
         onShowAuth={() => setShowAuthForm(true)}
       />
       <main className="main-content">
         <CategoryFilter />
         <ProductGrid 
-          onEditProduct={(product) => {
-            setEditingProduct(product);
+          onEditProduct={(product) => {setEditingProduct(product);
             setShowProductForm(true);
           }}
         />
@@ -64,13 +62,12 @@ function AppContent() {
     </div>
   );
 }
-
 function App() {
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <AppContent />
-      </AuthProvider>
+    <AuthProvider>
+    <AppContent />
+    </AuthProvider>
     </ThemeProvider>
   );
 }

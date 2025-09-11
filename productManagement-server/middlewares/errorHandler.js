@@ -1,7 +1,5 @@
-
 export default (err, req, res, next) => {
   console.error("Error:", err);
-
   // Known error (AppError)
   if (err.isOperational) {
     return res.status(err.statusCode).json({
@@ -9,7 +7,6 @@ export default (err, req, res, next) => {
       message: err.message
     });
   }
-
   // Unknown / unexpected error
   res.status(500).json({
     success: false,

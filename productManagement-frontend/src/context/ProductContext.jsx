@@ -1,9 +1,7 @@
-
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 const ProductContext = createContext();
-
 export const useProducts = () => {
   const context = useContext(ProductContext);
   if (!context) {
@@ -19,23 +17,22 @@ export const ProductProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("price");
+  const [sortField, setSortField] = useState("price");
   const [sortOrder, setSortOrder] = useState("desc");
   const [confirmDialog, setConfirmDialog] = useState({ show: false, product: null });
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const limit = 10;
-
   const fetchProducts = async (reset = false) => {
     if (loading) return;
     setLoading(true);
-    console.log('Fetching products with search query:', searchQuery, 'category:', selectedCategory, 'sortBy:', sortBy, 'sortOrder:', sortOrder, 'page:', page);
-
+    console.log('Fetching products with search query:', searchQuery, 'category:', selectedCategory, 'sortBy:', sortBy,'sortField',sortField, 'sortOrder:', sortOrder, 'page:', page);
     try {
       const res = await axios.get("/api/products", {
         params: {
           category: selectedCategory,
           search: searchQuery,
-          sortBy,
+          sortBy:sortField,
           sortOrder,
           page,
           limit,
@@ -46,7 +43,6 @@ export const ProductProvider = ({ children }) => {
         setProducts((prev) =>
           reset ? res.data.data : [...prev, ...res.data.data]
         );
-
         const totalLoaded = (reset ? 0 : products.length) + res.data.data.length;
         if (totalLoaded >= res.data.total) {
           setHasMore(false);
@@ -60,14 +56,13 @@ export const ProductProvider = ({ children }) => {
       setLoading(false);
     }
   };
-
     useEffect(() => {
     setPage(1);
     setProducts([]);
     setHasMore(true);
     fetchProducts(true);
   
-  }, [selectedCategory, searchQuery, sortBy, sortOrder]);
+  }, [selectedCategory, searchQuery, sortField,sortField, sortOrder]);
 
   // Infinite scroll listener
   useEffect(() => {
@@ -92,7 +87,6 @@ export const ProductProvider = ({ children }) => {
     console.log(page);
     // eslint-disable-next-line
   }, [page]);
-
   const fetchCategories = async () => {
     try {
       const response = await axios.get("/api/products/categories");
@@ -103,7 +97,6 @@ export const ProductProvider = ({ children }) => {
       console.error("Error fetching categories:", error);
     }
   };
-
 
 const addProduct = async (productData) => {
   try {
@@ -161,14 +154,20 @@ const deleteProduct = async (id) => {
   const handleCategoryFilter = (category) => setSelectedCategory(category);
   const handleSearch = (query) => setSearchQuery(query);
   const handleSort = (sortOption) => {
+    console.log(sortOption);
   if (sortOption.includes("-")) {
+   
     const [field, order] = sortOption.split("-");
-    setSortBy(field);     
+    
+    setSortBy(sortOption);   
+    setSortField(field);  
     setSortOrder(order);  
+    console.log(field , order)
   } else {
-    setSortBy(sortOption); 
-    setSortOrder("asc");  
-  }
+   setSortBy(sortOption); 
+   setSortField(sortOption);
+   setSortOrder("asc");  
+ }
 };
   const showConfirmDialog = (product) => setConfirmDialog({ show: true, product });
   const hideConfirmDialog = () => setConfirmDialog({ show: false, product: null });
@@ -200,6 +199,6 @@ const deleteProduct = async (id) => {
       }}
     >
       {children}
-    </ProductContext.Provider>
+  </ProductContext.Provider>
   );
 };

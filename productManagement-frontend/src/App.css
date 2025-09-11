@@ -131,55 +131,44 @@ body {
   background-color: var(--button-primary);
   color: white;
 }
-
 .btn-primary:hover {
   background-color: var(--button-hover);
   transform: translateY(-2px);
 }
-
 .btn-secondary {
   background-color: transparent;
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
 }
-
 .btn-secondary:hover {
   background-color: var(--card-bg);
   transform: translateY(-2px);
 }
-
 .btn-danger {
   background-color: var(--danger);
   color: white;
 }
-
 .btn-danger:hover {
   background-color: #c82333;
   transform: translateY(-2px);
 }
-
 .btn-success {
   background-color: var(--success);
   color: white;
 }
-
 .btn-success:hover {
   background-color: #218838;
   transform: translateY(-2px);
 }
-
-/* Form Styles */
 .form-group {
   margin-bottom: 20px;
 }
-
 .form-label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
   color: var(--text-primary);
 }
-
 .form-input,
 .form-select,
 .form-textarea {
@@ -192,7 +181,6 @@ body {
   font-size: 14px;
   transition: all 0.3s ease;
 }
-
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
@@ -200,19 +188,15 @@ body {
   border-color: var(--button-primary);
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
-
 .form-textarea {
   resize: vertical;
   min-height: 100px;
 }
-
 .form-error {
   color: var(--danger);
   font-size: 12px;
   margin-top: 5px;
 }
-
-/* Modal Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -238,19 +222,15 @@ body {
   overflow-y: auto;
   animation: fadeIn 0.3s ease-out;
 }
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  .main-content {
+.main-content {
     padding: 15px;
   }
-  
   .modal-content {
     padding: 20px;
     margin: 20px;
   }
-  
-  .btn {
+.btn {
     padding: 8px 16px;
     font-size: 13px;
   }

@@ -4,12 +4,10 @@ import * as Yup from 'yup';
 import { useProducts } from '../context/ProductContext';
 import { useState } from 'react';
 import './ProductForm.css';
-
 const ProductForm = ({ product, onClose }) => {
   const { addProduct, updateProduct } = useProducts();
   const isEditing = !!product;
   const [preview, setPreview] = useState(product?.image || '');
-
   const validationSchema = Yup.object({
     name: Yup.string().min(2).max(100).required(),
     price: Yup.number()
@@ -17,12 +15,10 @@ const ProductForm = ({ product, onClose }) => {
   .min(1, "Price must be at least 1")
   .max(999999, "Price must be less than 999999")
   .required("Price is required"),
-
     description: Yup.string().min(5).max(500).required(),
     category: Yup.string().required(),
     image: Yup.mixed().nullable()
   });
-
   const formik = useFormik({
     initialValues: {
       name: product?.name || '',
@@ -40,11 +36,9 @@ const ProductForm = ({ product, onClose }) => {
             formData.append(key, values[key]);
           }
         });
-
         const result = isEditing
           ? await updateProduct(product._id, formData)
           : await addProduct(formData);
-
         if (result.success) {
           onClose();
         } else {
@@ -57,12 +51,10 @@ const ProductForm = ({ product, onClose }) => {
       }
     }
   });
-
   const categories = [
     'fruits', 'vegetables', 'chocolates', 'clothes', 'machines',
     'electronics', 'dairy', 'toys', 'sports', 'other'
   ];
-
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -70,9 +62,7 @@ const ProductForm = ({ product, onClose }) => {
           <h2>{isEditing ? 'Edit Product' : 'Add New Product'}</h2>
           <button onClick={onClose} className="close-btn">✕</button>
         </div>
-
         <form onSubmit={formik.handleSubmit} className="product-form" encType="multipart/form-data">
-          
           <div className="form-group">
             <label htmlFor="name" className="form-label">Product Name *</label>
             <input
@@ -81,13 +71,11 @@ const ProductForm = ({ product, onClose }) => {
               name="name"
               className={`form-input ${formik.touched.name && formik.errors.name ? 'error' : ''}`}
               placeholder="Enter product name"
-              {...formik.getFieldProps('name')}
-            />
+              {...formik.getFieldProps('name')} />
             {formik.touched.name && formik.errors.name && (
               <div className="form-error">{formik.errors.name}</div>
             )}
           </div>
-
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="price" className="form-label">Price ($) *</label>
@@ -105,15 +93,13 @@ const ProductForm = ({ product, onClose }) => {
                 <div className="form-error">{formik.errors.price}</div>
               )}
             </div>
-
             <div className="form-group">
               <label htmlFor="category" className="form-label">Category *</label>
               <select
                 id="category"
                 name="category"
                 className={`form-select ${formik.touched.category && formik.errors.category ? 'error' : ''}`}
-                {...formik.getFieldProps('category')}
-              >
+                {...formik.getFieldProps('category')} >
                 <option value="">Select a category</option>
                 {categories.map(cat => (
                   <option key={cat} value={cat}>
@@ -126,7 +112,6 @@ const ProductForm = ({ product, onClose }) => {
               )}
             </div>
           </div>
-
           <div className="form-group">
             <label htmlFor="description" className="form-label">Description *</label>
             <textarea
@@ -141,7 +126,6 @@ const ProductForm = ({ product, onClose }) => {
               <div className="form-error">{formik.errors.description}</div>
             )}
           </div>
-
           <div className="form-group">
             <label htmlFor="image" className="form-label">Upload Image (optional)</label>
             <input
@@ -163,7 +147,6 @@ const ProductForm = ({ product, onClose }) => {
               </div>
             )}
           </div>
-
           <div className="form-actions">
             <button type="button" onClick={onClose} className="btn btn-secondary" disabled={formik.isSubmitting}>
               Cancel
@@ -184,5 +167,4 @@ const ProductForm = ({ product, onClose }) => {
     </div>
   );
 };
-
 export default ProductForm;

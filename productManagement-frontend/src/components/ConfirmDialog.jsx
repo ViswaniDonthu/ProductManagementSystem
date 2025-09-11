@@ -7,13 +7,12 @@ const ConfirmDialog = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   if (!confirmDialog.show) return null;
-
   const handleConfirm = async () => {
     setIsDeleting(true);
     try {
-      const result = await deleteProduct(confirmDialog.product._id);
+    const result = await deleteProduct(confirmDialog.product._id);
       if (result.success) {
-        // Add fade-out animation to the product card
+
         const productCard = document.querySelector(`[data-product-id="${confirmDialog.product._id}"]`);
         if (productCard) {
           productCard.classList.add('fade-out');
@@ -29,20 +28,17 @@ const ConfirmDialog = () => {
       setIsDeleting(false);
     }
   };
-
   const handleCancel = () => {
     if (!isDeleting) {
       hideConfirmDialog();
     }
   };
-
   return (
     <div className="modal-overlay" onClick={handleCancel}>
       <div className="confirm-dialog" onClick={e => e.stopPropagation()}>
         <div className="confirm-icon">
           <span>⚠️</span>
         </div>
-        
         <div className="confirm-content">
           <h3>Delete Product</h3>
           <p>
@@ -52,7 +48,6 @@ const ConfirmDialog = () => {
             This action cannot be undone.
           </p>
         </div>
-        
         <div className="confirm-actions">
           <button 
             onClick={handleCancel}

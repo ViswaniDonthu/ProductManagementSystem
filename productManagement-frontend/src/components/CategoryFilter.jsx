@@ -1,9 +1,7 @@
 import { useProducts } from '../context/ProductContext';
-
  import './CategoryFilter.css';
 const CategoryFilter = () => {
   const { categories, selectedCategory, handleCategoryFilter, handleSort, sortBy } = useProducts();
-
   const categoryIcons = {
     all: '🏪',
     fruits: '🍎',
@@ -16,15 +14,12 @@ const CategoryFilter = () => {
     toys: '🧸',
     sports: '⚽'
   };
-
   const sortOptions = [
-    { value: 'price-desc', label: 'Price: High to Low' },
-    { value: 'price-asc', label: 'Price: Low to High' },
     { value: 'newest', label: 'Newest First' },
-    { value: 'oldest', label: 'Oldest First' }
-   
+    { value: 'oldest', label: 'Oldest First' },
+   { value: 'price-desc', label: 'Price: High to Low' },
+    { value: 'price-asc', label: 'Price: Low to High' }
   ];
-
   return (
     <>
     <div className="category-filter">
@@ -48,7 +43,6 @@ const CategoryFilter = () => {
         </div>
       </div>
       </div>
-
       <div className="sort-section">
         <select 
           value={sortBy} 

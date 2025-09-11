@@ -36,11 +36,9 @@ exports.getProducts = async (req, res, next) => {
     success: true,
     data: products,
     count: products.length,
-    total, // so frontend can calculate hasMore
+    total,
   });
 };
-
-
 // Create product
 exports.createProduct = async (req, res) => {
   if (
@@ -51,10 +49,8 @@ exports.createProduct = async (req, res) => {
   ) {
     throw new AppError("All required fields must be filled", 400);
   }
-
   let imageUrl = "";
   let imageId = "";
-
   if (req.file) {
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "products",
@@ -63,13 +59,11 @@ exports.createProduct = async (req, res) => {
     imageUrl = result.secure_url;
     imageId = result.public_id;
   }
-
   const newProduct = await Product.create({
     ...req.body,
     image: imageUrl,
     imageId: imageId,
   });
-
   res.status(201).json({
     success: true,
     message: "Product created",
@@ -81,22 +75,16 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) throw new AppError("Product not found", 404);
-
   let imageUrl = product.image;
   let imageId = product.imageId;
-
   if (req.file) {
-    // Delete old image from Cloudinary if exists
     if (product.imageId) {
       await cloudinary.uploader.destroy(product.imageId);
     }
-
-    // Upload new image
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "products",
     });
     fs.unlinkSync(req.file.path);
-
     imageUrl = result.secure_url;
     imageId = result.public_id;
   }
@@ -124,8 +112,6 @@ exports.deleteProduct = async (req, res) => {
   if (!product) {
     throw new AppError("Product not found", 404);
   }
-
-  // Delete image from Cloudinary if exists
   if (product.imageId) {
     await cloudinary.uploader.destroy(product.imageId);
   }

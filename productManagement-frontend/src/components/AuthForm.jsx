@@ -4,22 +4,17 @@ import './AuthForm.css';
 
 const AuthForm = () => {
   const { login } = useAuth();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
-    // Basic validation
     if (!email || !password) {
       setError('Please fill in all fields');
       return;
     }
-
     try {
       setLoading(true);
       const result = await login(email, password);
@@ -33,7 +28,6 @@ const AuthForm = () => {
       setLoading(false);
     }
   };
-
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -45,7 +39,6 @@ const AuthForm = () => {
           <h2>Welcome Back</h2>
           <p>Sign in to your account</p>
         </div>
-
         <form onSubmit={handleSubmit} className="auth-form">
           {error && <div className="form-error-message">{error}</div>}
 
@@ -60,7 +53,6 @@ const AuthForm = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
           <div className="form-group">
             <label htmlFor="password" className="form-label">Password</label>
             <input
@@ -72,7 +64,6 @@ const AuthForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
           <button 
             type="submit" 
             className="btn btn-primary auth-submit"
@@ -92,10 +83,7 @@ const AuthForm = () => {
   <p>Default mail: <strong>test@example.com</strong></p>
   <p>Password: <strong>12345</strong></p>
 </div>
-
-
       </div>
-        
     </div>
   );
 };

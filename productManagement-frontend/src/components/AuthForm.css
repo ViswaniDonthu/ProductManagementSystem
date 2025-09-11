@@ -6,7 +6,6 @@
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   padding: 20px;
 }
-
 .auth-card {
   background-color: var(--card-bg);
   border-radius: 16px;
@@ -17,12 +16,10 @@
   max-width: 400px;
   animation: fadeIn 0.5s ease-out;
 }
-
 .auth-header {
   text-align: center;
   margin-bottom: 30px;
 }
-
 .auth-logo {
   display: flex;
   align-items: center;
@@ -33,7 +30,7 @@
 
 .auth-logo .logo-icon {
   font-size: 36px;
-/* //  animation: bounce 2s infinite; */
+
 }
 
 .auth-logo h1 {
@@ -69,14 +66,14 @@
   font-weight: 600;
   margin-top: 10px;
   align-items: center;
-  justify-content: center; /* centers text horizontally */
+  justify-content: center;
   text-align: center;
 }
 .glass-box {
-  background: rgba(255, 255, 255, 0.1); /* transparent white */
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 1rem 1.5rem;
-  backdrop-filter: blur(10px); /* frosted effect */
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #3f7dad;
@@ -86,8 +83,6 @@
   font-size: 0.95rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* Responsive Design */
 @media (max-width: 480px) {
   .auth-container {
     padding: 15px;

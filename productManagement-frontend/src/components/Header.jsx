@@ -1,30 +1,26 @@
-
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import { useProducts } from '../context/ProductContext';
 import './Header.css';
-
 const Header = ({ onAddProduct }) => {
   const { isDark, toggleTheme } = useTheme();
   const { user, logout } = useAuth();
   const { handleSearch, searchQuery } = useProducts();
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [inputValue, setInputValue] = useState(searchQuery || '');
-
-  // Debounce effect
   useEffect(() => {
     const timeout = setTimeout(() => {
       handleSearch(inputValue);
     }, 300); 
 
-    return () => clearTimeout(timeout); // cleanup old timer on new keystroke
+    return () => clearTimeout(timeout);
   }, [inputValue, handleSearch]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
-
   return (
     <header className="header">
       <div className="header-container">
@@ -34,7 +30,6 @@ const Header = ({ onAddProduct }) => {
             <h1 className="logo-text">ProductStore</h1>
           </div>
         </div>
-
         <div className="header-center">
           <div className="search-container">
             <input
@@ -47,16 +42,12 @@ const Header = ({ onAddProduct }) => {
             <span className="search-icon">🔍</span>
           </div>
         </div>
-
         <div className="header-right">
           <button 
             onClick={onAddProduct}
-            className="btn btn-primary add-product-btn"
-          >
-            
+            className="btn btn-primary add-product-btn">
             Add Product
           </button>
-
           <button 
             onClick={toggleTheme}
             className="theme-toggle"
@@ -64,17 +55,14 @@ const Header = ({ onAddProduct }) => {
           >
             {isDark ? '☀️' : '🌙'}
           </button>
-
           <div className="user-menu">
             <button 
               className="user-button"
-              onClick={() => setShowUserMenu(!showUserMenu)}
-            >
+              onClick={() => setShowUserMenu(!showUserMenu)}>
               <span className="user-avatar">👤</span>
               <span className="user-name">{user?.username}</span>
               <span className="dropdown-arrow">▼</span>
             </button>
-            
             {showUserMenu && (
               <div className="user-dropdown">
                 <div className="user-info">
@@ -85,8 +73,7 @@ const Header = ({ onAddProduct }) => {
                     logout();
                     setShowUserMenu(false);
                   }}
-                  className="logout-btn"
-                >
+                  className="logout-btn" >
                   🚪 Logout
                 </button>
               </div>
@@ -98,4 +85,4 @@ const Header = ({ onAddProduct }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

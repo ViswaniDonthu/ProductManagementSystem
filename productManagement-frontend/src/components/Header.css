@@ -6,7 +6,6 @@
   z-index: 100;
   border-bottom: 1px solid var(--border-color);
 }
-
 .header-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -117,7 +116,6 @@
 .user-menu {
   position: relative;
 }
-
 .user-button {
   display: flex;
   align-items: center;
@@ -131,7 +129,6 @@
   transition: all 0.3s ease;
   
 }
-
 .user-button:hover {
  /* border-color: var(--button-primary); */
   background-color: var(--button-hover);
@@ -193,14 +190,12 @@
   text-align: left;
   transition: background-color 0.3s ease;
 }
-
 .logout-btn:hover {
   background-color: var(--bg-secondary);
 }
 
 
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -209,37 +204,30 @@
     padding: 10px 15px;
     gap: 10px;
   }
-
-  /* Row 1: Logo + Right actions */
   .header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-
-  /* Row 2: Search bar full width */
   .header-center {
     order: 2;
     width: 100%;
     padding: 0;
     justify-content: center;
   }
-
   .search-container {
     max-width: 100%;
   }
-
   .search-input {
     padding: 10px 40px 10px 12px;
     font-size: 13px;
   }
-
   .add-product-btn span {
-    display: none; /* hide text, keep icon */
+    display: none;
   }
 
   .user-name {
-    display: none; /* hide username, keep avatar */
+    display: none;
   }
 
   .theme-toggle {
@@ -253,11 +241,9 @@
   .logo-text {
     font-size: 24px;
   }
-
   .logo-icon {
     font-size: 24px;
   }
-
   .search-input {
     font-size: 12px;
     padding: 8px 35px 8px 10px;
